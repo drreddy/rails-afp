@@ -6,16 +6,9 @@ gem 'rack', '~> 1.4.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :production, :mysql do
-  gem 'mysql2'
-end
-
-group :production, :postgresql do
-  gem 'pg'
-end
+gem 'pg'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'minitest'
   gem 'thor', '= 0.14.6'
 end
