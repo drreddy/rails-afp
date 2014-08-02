@@ -121,6 +121,14 @@
 							Audio Fingerprint generated: <br/>
 							<textarea style="width: 98%; height: 300px; max-width: 98%; max-height: 300px; padding: 10px; margin-bottom: 20px;" placeholder="<%= @fingerprint[0] %>" disabled></textarea>
 						</p>
+						<br/>
+						<p>
+							Actual Audio File: <br/>
+							<audio controls>
+							  <source src="<%= file1 %>" type="audio/wav">
+							Your browser does not support the audio element.
+							</audio>
+						</p>
 					</div>
 					<div class="6u">
 						<input type="text" class="text" name="name" placeholder="Name = <%= @name[1] %>" disabled style="width: 98%; padding: 10px; margin-bottom: 10px;"/><br/>
@@ -128,6 +136,14 @@
 						<p>
 							Audio Fingerprint generated: <br/>
 							<textarea style="width: 98%; height: 300px; max-width: 98%; max-height: 300px; padding: 10px; margin-bottom: 20px;" placeholder="<%= @fingerprint[1] %>" disabled></textarea>
+						</p>
+						<br/>
+						<p>
+							Actual Audio File: <br/>
+							<audio controls>
+							  <source src="<%= file2 %>" type="audio/wav">
+							Your browser does not support the audio element.
+							</audio>
 						</p>
 					</div>
 				</div>
