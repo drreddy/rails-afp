@@ -11,7 +11,7 @@ class HomeController < ApplicationController
       fpcalcpackage = File.join(Rails.root, 'exefiles', 'fpcalc_32bit')
 
       file1 = File.join(Rails.root, 'data', 'a.wav')
-      @output1 = %x[#{fpcalcpackage} -version].to_s
+      output1 = %x[#{fpcalcpackage} -version].to_s
       format1 = output1.to_s
       @name[0] = format1.split('=')[1].split("\n")[0].split('/').last
       @duration[0] = format1.split('=')[2].split("\n")[0]
@@ -32,8 +32,8 @@ class HomeController < ApplicationController
       distance     = hamming_distance(@fingerprint[0], @fingerprint[1])
 
       @sim = 1 - distance.to_f / bit_size
-      
-      if (@output1 == '')
+
+      if (output1 == '')
           @resp = 'command didnt return shit'
       else
           @resp = 'command returned shit'
