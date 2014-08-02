@@ -8,7 +8,7 @@ class HomeController < ApplicationController
       @duration = Array.new()
       @fingerprint = Array.new()
 
-      fpcalcpackage = File.join(Rails.root, 'wind_test', 'fpcalc')
+      fpcalcpackage = File.join(Rails.root, 'exefiles', 'fpcalc_32bit')
 
       file1 = File.join(Rails.root, 'data', 'test_a.wav')
       output1 = %x[#{fpcalcpackage} -raw #{file1}].to_s
