@@ -14,3 +14,6 @@
 /log/*.log
 /tmp
 .project
+
+/wind_test
+/wind_test/fpcalc

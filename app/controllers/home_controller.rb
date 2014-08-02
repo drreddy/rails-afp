@@ -8,9 +8,9 @@ class HomeController < ApplicationController
       @duration = Array.new()
       @fingerprint = Array.new()
 
-      fpcalcpackage = File.join(Rails.root, 'exefiles', 'fpcalc_32bit')
+      fpcalcpackage = File.join(Rails.root, 'wind_test', 'fpcalc')
 
-      file1 = File.join(Rails.root, 'data', 'a.wav')
+      file1 = File.join(Rails.root, 'data', 'test_a.wav')
       output1 = %x[#{fpcalcpackage} -raw #{file1}].to_s
       format1 = output1.to_s
       @name[0] = format1.split('=')[1].split("\n")[0].split('/').last
@@ -18,7 +18,7 @@ class HomeController < ApplicationController
       split_dat1 = format1.split('=').last
       @fingerprint[0] = split_dat1.split("\n")[0].split(',').map { |x| x.to_i }
 
-      file2 = File.join(Rails.root, 'data', 'b.wav')
+      file2 = File.join(Rails.root, 'data', 'test_b.wav')
       output2 = %x[#{fpcalcpackage} -raw #{file2}].to_s
       format2 = output2.to_s
       @name[1] = format2.split('=')[1].split("\n")[0].split('/').last
