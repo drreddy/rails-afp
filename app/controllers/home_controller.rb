@@ -10,28 +10,29 @@ class HomeController < ApplicationController
 
       fpcalcpackage = File.join(Rails.root, 'exefiles', 'fpcalc_32bit')
 
-      #file1 = File.join(Rails.root, 'data', 'a.wav')
+      file1 = File.join(Rails.root, 'data', 'a.wav')
       @output1 = %x[#{fpcalcpackage} -version].to_s
-      #format1 = output1.to_s
-      #@name[0] = format1.split('=')[1].split("\n")[0].split('/').last
-      #@duration[0] = format1.split('=')[2].split("\n")[0]
-      #split_dat1 = format1.split('=').last
-      #@fingerprint[0] = split_dat1.split("\n")[0].split(',').map { |x| x.to_i }
+      format1 = output1.to_s
+      @name[0] = format1.split('=')[1].split("\n")[0].split('/').last
+      @duration[0] = format1.split('=')[2].split("\n")[0]
+      split_dat1 = format1.split('=').last
+      @fingerprint[0] = split_dat1.split("\n")[0].split(',').map { |x| x.to_i }
 
-      #file2 = File.join(Rails.root, 'data', 'b.wav')
-      #output2 = %x[#{fpcalcpackage} -raw #{file2}].to_s
-      #format2 = output2.to_s
-      #@name[1] = format2.split('=')[1].split("\n")[0].split('/').last
-      #@duration[1] = format2.split('=')[2].split("\n")[0]
-      #split_dat2 = format2.split('=').last
-      #@fingerprint[1] = split_dat2.split("\n")[0].split(',').map { |x| x.to_i }
+      file2 = File.join(Rails.root, 'data', 'b.wav')
+      output2 = %x[#{fpcalcpackage} -raw #{file2}].to_s
+      format2 = output2.to_s
+      @name[1] = format2.split('=')[1].split("\n")[0].split('/').last
+      @duration[1] = format2.split('=')[2].split("\n")[0]
+      split_dat2 = format2.split('=').last
+      @fingerprint[1] = split_dat2.split("\n")[0].split(',').map { |x| x.to_i }
 
-      #max_raw_size = [@fingerprint[0].size, @fingerprint[1].size].max
-      #bit_size     = max_raw_size * BITS_PER_RAW_ITEM
+      max_raw_size = [@fingerprint[0].size, @fingerprint[1].size].max
+      bit_size     = max_raw_size * BITS_PER_RAW_ITEM
 
-      #distance     = hamming_distance(@fingerprint[0], @fingerprint[1])
+      distance     = hamming_distance(@fingerprint[0], @fingerprint[1])
 
-      #@sim = 1 - distance.to_f / bit_size
+      @sim = 1 - distance.to_f / bit_size
+      
       if (@output1 == '')
           @resp = 'command didnt return shit'
       else

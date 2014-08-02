@@ -1,8 +1,310 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<h1>Audio FingerPrint</h1>
+					<p>A song comparision platform using audiofingerprinting concept <br/> Developed By <a href="http://drreddy.herokuapp.com" target="none">drreddy</a> </p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly scrolly-centered">Click to know more on how it works</a>
+				</footer>
+			</section>
+		
+		<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>Overview</h2>
+				</header>
+				<p>Wikipedia definition about audio/acoustic fingerprinting :<br/>An acoustic fingerprint is a condensed digital summary, deterministically generated from an audio signal<br/> this can be used to identify an audio sample or quickly locate similar items in an audio database.</p>
+				<footer>
+					<a href="#first" class="button style2 scrolly">Click to know how I have implemented this</a><br/><br/><br/>
+					<a href="#result" class="button style2 scrolly">Just want see the result click here</a>
+				</footer>
+			</section>
+		
+		<!-- Feature 1 --
+			<article id="first" class="container box style1 right">
+				<a href="http://ineedchemicalx.deviantart.com/art/Time-goes-by-too-fast-335982438" class="image full"><img src="images/pic01.jpg" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>Lorem ipsum<br />
+						dolor sit amet</h2>
+					</header>
+					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
+				</div>
+			</article>
+		
+		<!-- Feature 2 --
+			<article class="container box style1 left">
+				<a href="http://ineedchemicalx.deviantart.com/art/Kingdom-of-the-Wind-348268044" class="image full"><img src="images/pic02.jpg" alt="" /></a>
+				<div class="inner">
+					<header>
+						<h2>Mollis posuere<br />
+						lectus lacus</h2>
+					</header>
+					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
+				</div>
+			</article>
+		
+		<!-- Portfolio --
+			<article class="container box style2">
+				<header>
+					<h2>Magnis parturient</h2>
+					<p>Justo phasellus et aenean dignissim<br />
+					placerat cubilia purus lectus.</p>
+				</header>
+				<!--<div class="inner gallery">
+					<div class="row flush">
+						<div class="3u"><a href="images/fulls/01.jpg" class="image full"><img src="images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
+						<div class="3u"><a href="images/fulls/02.jpg" class="image full"><img src="images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
+						<div class="3u"><a href="images/fulls/03.jpg" class="image full"><img src="images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
+						<div class="3u"><a href="images/fulls/04.jpg" class="image full"><img src="images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
+					</div>
+					<div class="row flush">
+						<div class="3u"><a href="images/fulls/05.jpg" class="image full"><img src="images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
+						<div class="3u"><a href="images/fulls/06.jpg" class="image full"><img src="images/thumbs/06.jpg" alt="" title="Different." /></a></div>
+						<div class="3u"><a href="images/fulls/07.jpg" class="image full"><img src="images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
+						<div class="3u"><a href="images/fulls/08.jpg" class="image full"><img src="images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
+					</div>
+				</div>--
+			</article>-->
+			<article id="first" class="container box style2">
+				<header>
+					<h2>Procedure Followed</h2>
+				</header>
+			</article>
 
-<%= @output1 %>
 
-<br/><br/><br/>
+			<article class="container box style2">
+				<header>
+					<h2>Getting raw uncompressed formats of audio</h2>
+					<p>Adding compressions like mp3 to a audio file increases noises<br />
+					So, we convert all file formats to raw audio file format .wav</p>
+				</header>
+			</article>
 
-<%= @resp %>
+			<article class="container box style2">
+				<header>
+					<h2>Processing the raw audio file</h2>
+					<p>In this case iam using the Chromaprint fpcalc by AcoustID<br />
+					In this program the good folks of AcoustID have already implemented the way to calculate the audio fingerprint. <br/>
+					To know more about audio fingerprinting read the concept <a href="http://willdrevo.com/fingerprinting-and-audio-recognition-with-python.html" target="none">here</a></p>
+				</header>
+			</article>
+
+			<article class="container box style2">
+				<header>
+					<h2>Processing the fingerprint</h2>
+					<p>Audio fingerprint is just an array of numbers which is received form a hash function<br />
+					I tried to find the difference between the fingerprints by calculation the hamming distance between the binary represenations of the two fingerprints</p>
+				</header>
+			</article>
+
+			<article class="container box style2">
+				<header>
+					<h2>Implementation of hamming distance and rendering the result</h2>
+					<p>I have learnt the the most efffective way to calculate Hamming distance for binary data is to apply XOR operation and count number of 1 in the result. <br />
+					Using the number of 1 I have determined the degree of similarity between songs</p>
+				</header>
+			</article>
+		
+
+		<!-- Contact -->
+			<article id="result" class="container box style3">
+				<header>
+					<h2>Final Result</h2>
+				</header>
+				<div class="row half" style="border-bottom: 1px solid grey;">
+					<div class="6u" style="border-right: 1px solid grey;">
+						<input type="text" class="text" name="name" placeholder="Name = <%= @name[0] %>" disabled style="width: 98%; padding: 10px; margin-bottom: 10px;"/><br/>
+						<input type="text" class="text" name="name" placeholder="Duration(sec) = <%= @duration[0] %>" disabled style="width: 98%; padding: 10px; margin-bottom: 10px;"/>
+						<p>
+							Audio Fingerprint generated: <br/>
+							<textarea style="width: 98%; height: 300px; max-width: 98%; max-height: 300px; padding: 10px; margin-bottom: 20px;" placeholder="<%= @fingerprint[0] %>" disabled></textarea>
+						</p>
+					</div>
+					<div class="6u">
+						<input type="text" class="text" name="name" placeholder="Name = <%= @name[1] %>" disabled style="width: 98%; padding: 10px; margin-bottom: 10px;"/><br/>
+						<input type="text" class="text" name="name" placeholder="Duration(sec) = <%= @duration[1] %>" disabled style="width: 98%; padding: 10px; margin-bottom: 10px;"/>
+						<p>
+							Audio Fingerprint generated: <br/>
+							<textarea style="width: 98%; height: 300px; max-width: 98%; max-height: 300px; padding: 10px; margin-bottom: 20px;" placeholder="<%= @fingerprint[1] %>" disabled></textarea>
+						</p>
+					</div>
+				</div>
+
+				<section style="margin-top:20px;">
+		          <header>
+		            <h3>Degree of Similarity</h3>
+		            <p>Calculated by using the hamming distance</p>
+		          </header>
+		          <p>This degree is calculated based on the fingerprints obtained above and using XOR to find the difference between the binary representations of the fingerprints and the value/degree of similarity thus obtained is <b><%= @sim %></b></p>
+		        </section>
+			</article>
+		
+		<!-- Generic -->
+		<!--
+			<article class="container box style3">
+				<header>
+					<h2>Generic Box</h2>
+					<p>Just a generic box. Nothing to see here.</p>
+				</header>
+				<section>
+					<header>
+						<h3>Paragraph</h3>
+						<p>This is a byline</p>
+					</header>
+					<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque 
+					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada <em>emphasized</em> ac turpis egestas. Morbi 
+					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit 
+					amet risus elit.</p>
+				</section>
+				<section>
+					<header>
+						<h3>Blockquote</h3>
+					</header>
+					<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
+					tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
+				</section>
+				<section>
+					<header>
+						<h3>Divider</h3>
+					</header>
+					<p>Donec consectetur <a href="#">vestibulum dolor et pulvinar</a>. Etiam vel felis enim, at viverra 
+					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci 
+					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam 
+					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices 
+					posuere cubilia.</p>
+					<hr />
+					<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra 
+					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci 
+					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam 
+					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices 
+					posuere cubilia.</p>
+				</section>
+				<section>
+					<header>
+						<h3>Unordered List</h3>
+					</header>
+					<ul class="default">
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Ordered List</h3>
+					</header>
+					<ol class="default">
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+					</ol>
+				</section>
+				<section>
+					<header>
+						<h3>Table</h3>
+					</header>
+					<div class="table-wrapper">
+						<table class="default">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>45815</td>
+									<td>Something</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>29.99</td>
+								</tr>
+								<tr>
+									<td>24524</td>
+									<td>Nothing</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>19.99</td>
+								</tr>
+								<tr>
+									<td>45815</td>
+									<td>Something</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>29.99</td>
+								</tr>
+								<tr>
+									<td>24524</td>
+									<td>Nothing</td>
+									<td>Ut porttitor sagittis lorem quis nisi ornare.</td>
+									<td>19.99</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3"></td>
+									<td>100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</section>
+				<section>
+					<header>
+						<h3>Form</h3>
+					</header>
+					<form method="post" action="#">
+						<div class="row">
+							<div class="6u">
+								<input class="text" type="text" name="name" id="name" value="" placeholder="John Doe" />
+							</div>
+							<div class="6u">
+								<input class="text" type="text" name="email" id="email" value="" placeholder="johndoe@domain.tld" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<select name="department" id="department">
+									<option value="">Choose a department</option>
+									<option value="1">Manufacturing</option>
+									<option value="2">Administration</option>
+									<option value="3">Support</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<input class="text" type="text" name="subject" id="subject" value="" placeholder="Enter your subject" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<textarea name="message" id="message" placeholder="Enter your message"></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="12u">
+								<ul class="actions">
+									<li><a href="#" class="button form">Submit</a></li>
+									<li><a href="#" class="button style3 form-reset">Clear Form</a></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+			</article>
+		-->
+		
+		<section id="footer">
+			<footer>
+					<a href="http://rajeev-reddy.com" class="button style3" target="none">You can contact me through my Website</a>
+			</footer>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; D Rajeev Reddy. All rights reserved.</li>
+				</ul>
+			</div>
+		</section>
