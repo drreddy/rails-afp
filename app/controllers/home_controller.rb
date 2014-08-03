@@ -34,8 +34,9 @@ class HomeController < ApplicationController
       @sim = 1 - distance.to_f / bit_size
 
       # command to add sudo perm for openshift
+      # ssh 53db46bee0b8cd718900011d@audiofingerprint-drreddy.rhcloud.com
+      # cd app-root/repo/
       # chmod 777 exefiles/fpcalc_32bit
-      #
 
       if (output1 == '')
           @resp = 'command didnt return shit'
